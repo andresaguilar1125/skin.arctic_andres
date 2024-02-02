@@ -2,8 +2,9 @@
 <!-- Foundation -->
 <window>
     <defaultcontrol always="true">11</defaultcontrol>
+    <onload>Action(close,all)</onload>
     <controls>
-        <control type="group">
+        <!-- <control type="group">
             <include>Animation.Slide.Menu</include>
             <control type="image">
                 <posx>-1</posx>
@@ -191,6 +192,6 @@
                     </control>
                 </focusedlayout>
             </control>
-        </control>
+        </control> -->
     </controls>
 </window>

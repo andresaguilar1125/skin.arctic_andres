@@ -3,7 +3,7 @@
 <window id="106">
     <defaultcontrol always="true">1000</defaultcontrol>
     <coordinates>
-        <origin x="0" y="0"/>
+        <origin x="0" y="0" />
     </coordinates>
     <controls>
         <include>GlobalOverlay</include>
@@ -32,7 +32,7 @@
                     <posy>0</posy>
                     <include>FontTop</include>
                     <textcolor>Dark2</textcolor>
-                    <label>10106</label>
+                    <label>Quick Settings</label>
                 </control>
                 <include>Kodi_Logo</include>
 
@@ -48,10 +48,10 @@
                 </control>
             </control>
             <include content="Def_Gradient_Settings_Image">
-                <param name="controlid" value="996"/>
-                <param name="left" value="8"/>
-                <param name="top" value="90"/>
-                <param name="width" value="450"/>
+                <param name="controlid" value="996" />
+                <param name="left" value="8" />
+                <param name="top" value="90" />
+                <param name="width" value="450" />
             </include>
             <control type="grouplist" id="996">
                 <description>grouplist for context buttons</description>
@@ -67,6 +67,108 @@
                     <include>DefContextButtonGradient</include>
                     <align>left</align>
                 </control>
+
+                <!-- Added to my mod skin -->
+                <control type="button" id="9001">
+                    <description>Channels</description>
+                    <label>19019</label>
+                    <onclick>ActivateWindow(TVChannels)</onclick>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                </control>
+
+                <control type="radiobutton" id="6">
+                    <description>Show Hidden Channels</description>
+                    <label>19051</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+
+
+                <control type="button" id="16">
+                    <description>Settings</description>
+                    <label>Settings</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>ActivateWindow(settings)</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+                <control type="button" id="15">
+                    <description>File Manager</description>
+                    <label>- File Manager</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>ActivateWindow(filemanager)</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+                <control type="button" id="9005">
+                    <description>Search</description>
+                    <label>- Search</label>
+                    <onclick>ActivateWindow(TvTimerRules)</onclick>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                </control>
+
+                <control type="button" id="11">
+                    <description>Exit</description>
+                    <label>- Exit Kodi</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>Quit()</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+                <control type="button" id="17">
+                    <description>Shutdown System</description>
+                    <label>- Shutdown Timer</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>AlarmClock(shudowntimer,Shutdown())</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+                <control type="button" id="12">
+                    <description>Shutdown System</description>
+                    <label>- Shutdown</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>PowerDown()</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+                <control type="button" id="13">
+                    <description>Reboot System</description>
+                    <label>- Reboot</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>Reset()</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+                <control type="button" id="10">
+                    <description>Reload Skin</description>
+                    <label>- Reload Skin</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+                <control type="button" id="14">
+                    <description>Info System</description>
+                    <label>- Info</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>ActivateWindow(systeminfo)</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+                <!-- Added to my mod skin -->
+
             </control>
         </control>
     </controls>
