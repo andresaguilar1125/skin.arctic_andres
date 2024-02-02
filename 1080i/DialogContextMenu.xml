@@ -122,6 +122,15 @@
                     <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
                 </control>
 
+                <control type="button" id="18">
+                    <description>Exit</description>
+                    <label>- Restart Kodi</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>RestartApp()</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
                 <control type="button" id="17">
                     <description>Shutdown System</description>
                     <label>- Shutdown Timer</label>
@@ -164,6 +173,15 @@
                     <include>DefContextButtonGradient</include>
                     <align>left</align>
                     <onclick>ActivateWindow(systeminfo)</onclick>
+                    <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                </control>
+
+                <control type="button" id="19">
+                    <description>Debug</description>
+                    <label>- Debugger</label>
+                    <include>DefContextButtonGradient</include>
+                    <align>left</align>
+                    <onclick>Skin.ToggleDebug()</onclick>
                     <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
                 </control>
 

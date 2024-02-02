@@ -2,8 +2,36 @@ Creative Commons Non Commercial 3.0 License
 Icon images from iconmonstr.com see website for license terms
 Some additional icons from metroicon.net courtesy of Piers
 
-# Settings GUI
-- Agregar
+# DialogContextMenu.xml
+- Custom : Quick settings and merge power menu dialog
 
-# MyChannels
-- Agregar keystroke backspace then fullscreenlivetv.xml
+# DialogPVRChannelsOSD.xml
+- Removed : Controls to avoid channel selection dialog
+- Added OnLoad : Action(close) to force close and return to fullscreenvideo
+
+# DialogVolumeBar.xml
+- Removed : Pictures and animations
+
+# Home.xml
+- Removed : Controls to disable screen
+- Added OnLoad : ActivateWindow(tvchannels) to force reload channel list view50
+
+# Includes_OSD.xml
+- Custom : Seekbar1 
+- Removed : OSDInfoContent built into Seekbar1
+
+# Includes_PVR.xml
+- Added : ClockOSD (furnitureClock) into PVRInfoPanel (liveTV preview window)
+- Custom : PVRView50 Removed (No information avilable)
+
+# MyPVRChannels.xml
+- Removed : Furniture Header and Clock to maximize channel list view50
+
+# VideoOSD.xml
+- Removed : Controls to disable screen
+
+# /background
+- Added : Background kodi art background
+
+# /keymaps
+- Add KeyMap Editor from repositores and update config within FTV here
