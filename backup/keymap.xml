@@ -1,0 +1,9 @@
+<keymap>
+    <global>
+        <keyboard>
+            <R>ReloadSkin()</R>
+            <D>Skin.ToggleDebug()</D>
+            <K>Notification(k, keymap)</K>
+        </keyboard>
+    </global>
+</keymap> 
