@@ -19,6 +19,7 @@ Some additional icons from metroicon.net courtesy of Piers
 # Includes_OSD.xml
 - Custom : Seekbar1 
 - Removed : OSDInfoContent built into Seekbar1
+- Added : Background Channel Selector
 
 # Includes_PVR.xml
 - Added : ClockOSD (furnitureClock) into PVRInfoPanel (liveTV preview window)
@@ -35,3 +36,25 @@ Some additional icons from metroicon.net courtesy of Piers
 
 # /keymaps
 - Add KeyMap Editor from repositores and update config within FTV here
+- Global keymaps
+<keymap>
+    <global>
+        <keyboard>
+            <R>ReloadSkin()</R>
+            <D>Skin.ToggleDebug()</D>
+            <K>Notification(k, keymap)</K>
+        </keyboard>
+    </global>
+</keymap> 
+
+# //Settings (in kodi)
+- PVR Service / Playback
+    - Preselect playing channels : off
+    - Show channel information   : 5 sec
+    - Close channel OSD after sw : off
+    - Confirm channel switches by: off
+    - Delay channel switch       : 0 ms 
+- Skin Settings / Furniture
+    - Show now playing info      : off
+- Skin Settings / Video Music OSD
+    - View OSD mode              : standard
