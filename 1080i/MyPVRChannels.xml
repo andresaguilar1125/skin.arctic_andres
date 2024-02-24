@@ -9,9 +9,9 @@
         <!-- Se desactivo pero dejaron en los settings ⭐ -->
         <!-- <include>Furniture_Header</include> -->
         <!-- <include>Furniture_Clock</include> -->
-        <include>Furniture_NowPlaying</include>
-        <include>Furniture_Weather</include>
-        <include>PVRSideBlade</include>
+        <!-- <include>Furniture_NowPlaying</include> -->
+        <!-- <include>Furniture_Weather</include> -->
+        <!-- <include>PVRSideBlade</include> -->
         <!-- List - WithPreview -->
         <include>PVRView_50</include>
         <!-- Cards -->

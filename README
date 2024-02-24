@@ -2,6 +2,9 @@ Creative Commons Non Commercial 3.0 License
 Icon images from iconmonstr.com see website for license terms
 Some additional icons from metroicon.net courtesy of Piers
 
+# CustomStartup.xml
+- Removed Arctic name on startup screen
+
 # DialogContextMenu.xml
 - Custom : Quick settings and merge power menu dialog
 
@@ -24,9 +27,11 @@ Some additional icons from metroicon.net courtesy of Piers
 # Includes_PVR.xml
 - Added : ClockOSD (furnitureClock) into PVRInfoPanel (liveTV preview window)
 - Custom : PVRView50 Removed (No information avilable)
+- Format : Realigned item list, miniPreview window
 
 # MyPVRChannels.xml
 - Removed : Furniture Header and Clock to maximize channel list view50
+- Removed : Furniture Sidebar and Now Playing
 
 # VideoOSD.xml
 - Removed : Controls to disable screen

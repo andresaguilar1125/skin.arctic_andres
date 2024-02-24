@@ -3108,6 +3108,18 @@
     <!-- Background Channel Bar ⭐ -->
     <include name="Seekbar1">
         <control type="group">
+
+            <control type="group" description="left-background-before-panel">
+                <!-- arreglo hechizo -->
+                <control type="image">
+                    <bottom>0</bottom>
+                    <width>20</width>
+                    <height>260</height>
+                    <left>0</left>
+                    <texture>common/white.png</texture>
+                    <colordiffuse>$VAR[OSDPanel]</colordiffuse>
+                </control>
+            </control>
             <control type="image" description="panel logo">
                 <width>260</width>
                 <height>260</height>
@@ -3132,7 +3144,7 @@
                     <bottom>0</bottom>
                     <width>100%</width>
                     <height>260</height>
-                    <left>245</left>
+                    <left>235</left>
                     <texture>common/white.png</texture>
                     <colordiffuse>$VAR[OSDPanel]</colordiffuse>
                 </control>

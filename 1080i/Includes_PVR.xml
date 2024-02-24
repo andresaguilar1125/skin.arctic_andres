@@ -153,39 +153,54 @@
         </control>
     </include>
 
-    <!-- Se agrego el clockOSD ⭐-->
+    <!-- Custom Minipreview view ⭐-->
     <include name="PVRInfoPanel">
+
         <control type="group">
             <left>70</left>
-            <width>645</width>
-            <top>206</top>
+            <width>700</width>
+            <top>325</top>
             <height>660</height>
             <control type="group">
                 <height>370</height>
-                <control type="image">
+                <control type="label" description="channel-nowplaying-title">
+                    <left>10</left>
+                    <right>10</right>
+                    <height>0</height>
+                    <top>-30</top>
+                    <visible>Player.HasVideo</visible>
+                    <center>middle</center>
+                    <align>center</align>
+                    <width>700</width>
+                    <font>ChannelInfo</font>
+                    <label>Canal $INFO[VideoPlayer.ChannelNumberLabel] | $INFO[VideoPlayer.ChannelName]</label>
+                </control>
+                <control type="label" description="channel-nowplaying-title">
+                    <left>10</left>
+                    <right>10</right>
+                    <height>0</height>
+                    <top>-30</top>
+                    <visible>!Player.HasVideo</visible>
+                    <center>middle</center>
+                    <align>center</align>
+                    <width>700</width>
+                    <font>ChannelInfo</font>
+                    <label>Seleccione Canal y despues OK</label>
+                </control>
+                <control type="image" description="border">
                     <width>642</width>
                     <height>100%</height>
                     <texture border="10" infill="false">common/$VAR[nofocus-shadow10]</texture>
                 </control>
-                <control type="image">
-                    <left>10</left>
-                    <top>10</top>
-                    <right>12</right>
-                    <bottom>10</bottom>
-                    <texture colordiffuse="Fallback" border="4" background="true">
-                        common/diffuse_box.png</texture>
-                </control>
-                <control type="videowindow">
+                <control type="videowindow" description="nowplaying-video">
                     <left>10</left>
                     <top>10</top>
                     <right>10</right>
                     <bottom>10</bottom>
-                    <animation type="WindowClose" reversible="false">
-                        <effect type="zoom" center="auto" start="100" end="0" time="0" />
-                    </animation>
                     <visible>Player.HasVideo</visible>
                     <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                 </control>
+
                 <control type="image">
                     <visible>!Player.HasVideo + String.IsEmpty(Listitem.EpgEventIcon) +
                         [[String.IsEmpty(Window(Home).Property(PVR.Artwork.fanart)) +
@@ -219,44 +234,35 @@
                     <top>10</top>
                     <right>10</right>
                     <bottom>10</bottom>
-                    <texture border="4" colordiffuse="Box2" infill="false">common/box21.png</texture>
+                    <texture border="4" colordiffuse="Box1" infill="false">common/box21.png</texture>
                 </control>
-            </control>
-            <control type="group">
-                <left>10</left>
-                <right>10</right>
-                <posy>370</posy>
-                <height>290</height>
-                <control type="label">
-                    <top>8</top>
-                    <aligny>center</aligny>
-                    <height>64</height>
-                    <font>SmallBold</font>
-                    <textcolor>Dark1</textcolor>
-                    <selectedcolor>Dark1</selectedcolor>
-                    <label>$INFO[ListItem.Title]</label>
-                </control>
-                <control type="label">
-                    <top>48</top>
-                    <height>64</height>
-                    <aligny>center</aligny>
-                    <font>Tiny</font>
-                    <textcolor>Dark1</textcolor>
-                    <selectedcolor>Dark1</selectedcolor>
-                    <label>$INFO[ListItem.Genre]</label>
-                </control>
-                <control type="textbox">
-                    <top>124</top>
-                    <bottom>17</bottom>
-                    <align>justify</align>
-                    <font>Tiny</font>
-                    <textcolor>Dark2</textcolor>
-                    <selectedcolor>Dark2</selectedcolor>
-                    <label>$INFO[ListItem.Plot]</label>
-                </control>
-            </control>
 
-            <include>Furniture_Clock</include>
+                <control type="label" description="myClockOSD">
+                    <left>10</left>
+                    <right>10</right>
+                    <height>800</height>
+                    <!-- <top>-30</top> -->
+                    <!-- <visible>Player.HasVideo</visible> -->
+                    <center>middle</center>
+                    <align>center</align>
+                    <width>700</width>
+                    <font>ChannelInfo</font>
+                    <textcolor>$VAR[ColorHighlight]</textcolor>
+                    <label>$INFO[System.Time(hh:mm)] $INFO[System.Time(xx)]</label>
+                </control>
+                <control type="label" description="myDate">
+                    <left>10</left>
+                    <right>10</right>
+                    <height>880</height>
+                    <center>middle</center>
+                    <align>center</align>
+                    <width>700</width>
+                    <font>ChannelInfo</font>
+                    <!-- <textcolor>$VAR[ColorHighlight]</textcolor> -->
+                    <label>$INFO[System.Date]</label>
+                </control>
+
+            </control>
 
         </control>
     </include>
@@ -368,35 +374,38 @@
     <include name="PVRView_50">
         <control type="group">
             <visible>Control.IsVisible(50)</visible>
-            <include>Animation.Common</include>
             <control type="group">
                 <right>SidePad</right>
                 <width>1100</width>
-                <!-- Para aprovechar el espacio de arriba ocultando el nowplaying -->
                 <top>90</top>
                 <height>900</height>
                 <control type="panel" id="50" description="TV CHANNELS">
                     <right>0</right>
-                    <width>1100</width>
+                    <width>1000</width>
                     <top>0</top>
                     <bottom>0</bottom>
                     <onup>50</onup>
                     <ondown>50</ondown>
-                    <onleft condition="!Skin.HasSetting(global.kioskmode)">28</onleft>
-                    <onright>1633</onright>
                     <pagecontrol>1633</pagecontrol>
                     <viewtype label="535">list</viewtype>
                     <orientation>vertical</orientation>
 
-                    <itemlayout height="128" width="1100">
-                        <control type="image">
-                            <description>ItemList Background Playing now but not focused</description>
-                            <width>100%</width>
-                            <height>100%</height>
-                            <texture colordiffuse="Dark1">common/selected.png</texture>
-                            <animation effect="fade" start="100" end="5" condition="true">
-                                Conditional</animation>
+                    <itemlayout height="128">
+                        <control type="group"
+                            description="ItemList Background Playing now but not focused">
                             <visible>ListItem.IsPlaying</visible>
+                            <control type="label">
+                                <left>150</left>
+                                <aligny>center</aligny>
+                                <font>MediumBold3</font>
+                                <height>100%</height>
+                                <label>$INFO[ListItem.ChannelName]</label>
+                            </control>
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <!-- <texture border="8" colordiffuse="">common/box.png</texture> -->
+                            </control>
                         </control>
                         <control type="image">
                             <description>ListemItem Logo Icon</description>
@@ -407,50 +416,28 @@
                             <aspectratio align="left">keep</aspectratio>
                             <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
                         </control>
-                        <control type="image">
-                            <desripction>Arrow Now Playing</desripction>
-                            <animation effect="slide" end="30" time="0"
-                                condition="ListItem.IsRecording">Conditional</animation>
-                            <left>106</left>
-                            <top>28</top>
-                            <width>100</width>
-                            <height>100</height>
-                            <aspectratio>keep</aspectratio>
-                            <texture colordiffuse="$VAR[ColorHighlight]">progress/play.png</texture>
-                            <visible>ListItem.IsPlaying</visible>
-                        </control>
                         <control type="group">
                             <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
                             <control type="label">
                                 <left>150</left>
-                                <right>100</right>
-                                <top>4</top>
                                 <aligny>center</aligny>
-                                <height>64</height>
                                 <font>MediumBold3</font>
+                                <height>100%</height>
                                 <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
                                 <label>$INFO[ListItem.ChannelName]</label>
                             </control>
-                            <control type="label">
-                                <animation effect="slide" end="30" time="0"
-                                    condition="ListItem.IsPlaying">Conditional</animation>
-                                <animation effect="slide" end="30" time="0"
-                                    condition="ListItem.IsRecording">Conditional</animation>
-                                <left>150</left>
-                                <bottom>20</bottom>
-                                <right>100</right>
+                            <control type="label" description="channel_nums">
+                                <align>right</align>
                                 <aligny>center</aligny>
-                                <height>64</height>
-                                <font>Small20</font>
-                                <textcolor>Dark2</textcolor>
-                                <selectedcolor>Dark2</selectedcolor>
+                                <font>MediumBold3</font>
+                                <height>100%</height>
+                                <right>15</right>
                                 <label fallback="19055">$INFO[ListItem.ChannelNumberLabel]</label>
                             </control>
                         </control>
                     </itemlayout>
 
-                    <focusedlayout height="128" width="1100">
+                    <focusedlayout height="128">
                         <control type="group">
                             <control type="image">
                                 <width>100%</width>
@@ -458,29 +445,10 @@
                                 <texture border="8" colordiffuse="$VAR[ColorHighlight]">
                                     common/box.png</texture>
                             </control>
-                            <control type="image">
+                            <control type="image" description="background-nowplaying">
                                 <width>100%</width>
                                 <height>100%</height>
-                                <texture border="8" colordiffuse="$VAR[ColorHighlight]">
-                                    common/gradient-box-wide.png</texture>
-                            </control>
-                            <control type="image">
-                                <width>100%</width>
-                                <height>100%</height>
-                                <texture colordiffuse="Light1">common/selected.png</texture>
-                                <animation effect="fade" start="100" end="5" condition="true">
-                                    Conditional</animation>
-                                <visible>ListItem.IsPlaying</visible>
-                            </control>
-                            <control type="image">
-                                <animation effect="slide" end="30" time="0"
-                                    condition="ListItem.IsRecording">Conditional</animation>
-                                <left>106</left>
-                                <top>28</top>
-                                <width>100</width>
-                                <height>100</height>
-                                <aspectratio>keep</aspectratio>
-                                <texture colordiffuse="$VAR[ColorHighlight]">progress/play.png</texture>
+                                <!-- <texture border="8" colordiffuse="">common/box.png</texture> -->
                                 <visible>ListItem.IsPlaying</visible>
                             </control>
                             <control type="image">
@@ -495,30 +463,21 @@
                                 <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
                                 <control type="label">
                                     <left>150</left>
-                                    <right>100</right>
-                                    <top>4</top>
                                     <aligny>center</aligny>
-                                    <height>64</height>
+                                    <font>MediumBold3</font>
+                                    <height>100%</height>
                                     <font>MediumBold</font>
                                     <textcolor>Dark1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
                                     <label>$INFO[ListItem.ChannelName]</label>
                                 </control>
-                                <control type="label">
-                                    <left>150</left>
-                                    <bottom>20</bottom>
-                                    <right>100</right>
+                                <control type="label" description="channel_nums">
+                                    <align>right</align>
                                     <aligny>center</aligny>
-                                    <height>64</height>
-                                    <font>Small20</font>
-                                    <textcolor>Dark2</textcolor>
-                                    <selectedcolor>Light2</selectedcolor>
-                                    <!-- <label fallback="19055">$INFO[ListItem.Title]</label> -->
-                                    <label>$INFO[ListItem.ChannelNumberLabel]</label>
-                                    <animation effect="slide" end="30" time="0"
-                                        condition="ListItem.IsRecording">Conditional</animation>
-                                    <animation effect="slide" end="30" time="0"
-                                        condition="ListItem.IsPlaying">Conditional</animation>
+                                    <font>MediumBold3</font>
+                                    <height>100%</height>
+                                    <right>15</right>
+                                    <textcolor>Dark1</textcolor>
+                                    <label fallback="19055">$INFO[ListItem.ChannelNumberLabel]</label>
                                 </control>
                             </control>
                         </control>
